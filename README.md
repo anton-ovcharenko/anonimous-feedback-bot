@@ -1,2 +1,2 @@
-# anonimous-feedback-bot
-TG bot for anonimous feedback
+# anonymous-feedback-bot
+TG bot for anonymous feedback
