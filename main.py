@@ -1,6 +1,7 @@
 import telebot
 
-from bot.handlers import message, callback_query
+from bot.handlers.callback_query import join_admin, remove_admin, join_user, remove_user, write_admin, write_user
+from bot.handlers.message import start
 from config import *
 from module import user_manager
 
@@ -23,13 +24,13 @@ bot = telebot.TeleBot(BOT_TOKEN)
 
 
 def register_handlers():
-    message.start.register_handlers(bot)
-    callback_query.join_admin.register_handlers(bot)
-    callback_query.remove_admin.register_handlers(bot)
-    callback_query.join_user.register_handlers(bot)
-    callback_query.remove_user.register_handlers(bot)
-    callback_query.write_admin.register_handlers(bot)
-    callback_query.write_user.register_handlers(bot)
+    start.register_handlers(bot)
+    join_admin.register_handlers(bot)
+    remove_admin.register_handlers(bot)
+    join_user.register_handlers(bot)
+    remove_user.register_handlers(bot)
+    write_admin.register_handlers(bot)
+    write_user.register_handlers(bot)
 
 
 if __name__ == '__main__':
