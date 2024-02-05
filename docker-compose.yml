@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  anfeb:
+    image: "anfeb"
+    stop_signal: SIGINT
+    build:
+      context: .
+    working_dir: "/usr/src/app/anfeb"
+    volumes:
+      - anfeb-data:/usr/src/app/anfeb/data
+    command: python3 -m main
+    restart: always
+    env_file:
+      - ".env"
+
+volumes:
+  anfeb-data:
