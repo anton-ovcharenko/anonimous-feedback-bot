@@ -1,8 +1,9 @@
+import os
+
 import telebot
 
 from bot.handlers.callback_query import join_admin, remove_admin, join_user, remove_user, write_admin, write_user
 from bot.handlers.message import start
-from config import *
 from module import user_manager
 
 _description = '''
@@ -13,14 +14,10 @@ Please, be polite with each other!
 P.S.: No tracking, logging or saving any evidences of users activity.
 '''
 
-# if "TELEBOT_BOT_TOKEN" not in os.environ or "GROUP_CHAT_ID" not in os.environ:
-#     raise AssertionError("Please configure TELEBOT_BOT_TOKEN and GROUP_CHAT_ID as environment variables")
-#
-# bot = telebot.AsyncTeleBot(os.environ["TELEBOT_BOT_TOKEN"])
-# GROUP_CHAT_ID = int(os.environ["GROUP_CHAT_ID"])
+if 'BOT_TOKEN' not in os.environ or 'BOT_NAME' not in os.environ:
+    raise AssertionError('Please configure BOT_TOKEN and BOT_NAME environment variables')
 
-
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = telebot.TeleBot(os.environ['BOT_TOKEN'])
 
 
 def register_handlers():
