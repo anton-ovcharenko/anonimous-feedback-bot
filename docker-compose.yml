@@ -9,7 +9,6 @@ services:
     working_dir: "/usr/src/app/anfeb"
     volumes:
       - anfeb-data:/usr/src/app/anfeb/data
-    command: python3 -m main
     restart: always
     env_file:
       - ".env"

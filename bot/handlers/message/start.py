@@ -6,8 +6,8 @@ from telebot.types import Message
 from bot import common
 
 _welcome_message = f'''
- Welcome to {os.environ['BOT_NAME']}.
-Join -> Wait for approval from admin-> Receive and write messages.
+Welcome to {os.environ['BOT_NAME']}.
+Join -> Wait for approval from admin -> Receive and write messages.
 Use available actions below...
 '''
 
