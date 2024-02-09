@@ -22,6 +22,7 @@ def register_handlers(bot: telebot.TeleBot):
     remove_user.register_handlers(bot)
     write_admin.register_handlers(bot)
     write_user.register_handlers(bot)
+    print('Handlers was registered')
 
 
 if __name__ == '__main__':
@@ -35,4 +36,6 @@ if __name__ == '__main__':
     bot.set_my_commands(
         commands=[telebot.types.BotCommand("/start", "Let's start from here!")],
         scope=telebot.types.BotCommandScopeAllPrivateChats())
+    print('Bot was started...')
     bot.infinity_polling()
+    print('Bot was stopped.')

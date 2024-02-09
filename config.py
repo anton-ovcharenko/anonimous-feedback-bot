@@ -18,7 +18,9 @@ class Config:
 
 
 def load_config() -> Config:
-    return Config(tg_bot=TgBot.from_env())
+    config = Config(tg_bot=TgBot.from_env())
+    print('Config was loaded')
+    return config
 
 
 def grt_env(variable_name: str) -> str:

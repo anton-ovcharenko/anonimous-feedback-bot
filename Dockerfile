@@ -8,4 +8,4 @@ COPY bot ./bot
 COPY module ./module
 COPY *.py .
 
-CMD ["python3", "main.py"]
+CMD ["python3", "-u", "main.py"]

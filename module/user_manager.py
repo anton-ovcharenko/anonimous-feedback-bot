@@ -37,6 +37,8 @@ def load_from_file():
     except FileNotFoundError:
         _users = dict()
 
+    print('Users was loaded from file')
+
 
 def add_user(user_chat_id: int, name: str, username: str):
     _users[user_chat_id] = {'name': name, 'username': username}
