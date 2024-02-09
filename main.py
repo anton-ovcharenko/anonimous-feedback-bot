@@ -1,9 +1,8 @@
-import os
-
 import telebot
 
 from bot.handlers.callback_query import join_admin, remove_admin, join_user, remove_user, write_admin, write_user
 from bot.handlers.message import start
+from config import load_config
 from module import user_manager
 
 _description = '''
@@ -14,13 +13,8 @@ Please, be polite with each other!
 P.S.: No tracking, logging or saving any evidences of users activity.
 '''
 
-if 'BOT_TOKEN' not in os.environ or 'BOT_NAME' not in os.environ:
-    raise AssertionError('Please configure BOT_TOKEN and BOT_NAME environment variables')
 
-bot = telebot.TeleBot(os.environ['BOT_TOKEN'])
-
-
-def register_handlers():
+def register_handlers(bot: telebot.TeleBot):
     start.register_handlers(bot)
     join_admin.register_handlers(bot)
     remove_admin.register_handlers(bot)
@@ -31,8 +25,11 @@ def register_handlers():
 
 
 if __name__ == '__main__':
+    config = load_config()
+    bot = telebot.TeleBot(config.tg_bot.token)
+
     user_manager.load_from_file()
-    register_handlers()
+    register_handlers(bot)
 
     bot.set_my_description(_description)
     bot.set_my_commands(

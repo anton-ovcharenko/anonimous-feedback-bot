@@ -30,7 +30,6 @@ Create a `.env` file in the root directory and fill in the necessary details:
 
 ```
 BOT_TOKEN=telegram_bot_token
-BOT_NAME=telegram_bot_name
 ```
 
 ## Usage
